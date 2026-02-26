@@ -1,0 +1,14 @@
+﻿# Logs
+*.log
+
+# Node / frontend tooling (si luego agregas build)
+node_modules/
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

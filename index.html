@@ -1,0 +1,558 @@
+﻿<!-- ================== INICIO PARTE 1: HEAD + NAVBAR ================== ordenes de compra de chaquetas, inventario problema de deysi -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZONA CENTRO INMOBILIARIA</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Tipografias -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+</head>
+<body>
+
+  <!-- Botón WhatsApp -->
+  <a href="https://wa.me/573186781547" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Barra fija inferior de accesos -->
+  <nav class="quick-dock" aria-label="Accesos rápidos">
+    <a href="#inmuebles" class="quick-dock-btn">
+      <i class="fa-solid fa-building"></i>
+      <span>Propiedades</span>
+    </a>
+    <a href="#noticias" class="quick-dock-btn">
+      <i class="fa-regular fa-newspaper"></i>
+      <span>Noticias</span>
+    </a>
+    <a href="https://www.zonapagos.com/PagosN3/Vistas/Logins/LoginCliente.aspx" class="quick-dock-btn" target="_blank" rel="noopener noreferrer">
+      <i class="fa-solid fa-credit-card"></i>
+      <span>Zona Pagos</span>
+    </a>
+  </nav>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom shadow fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#inicio" aria-label="Inicio ZONA CENTRO INMOBILIARIA">
+        <img src="https://lh6.googleusercontent.com/proxy/nrNHC_m0_RziCYvfPgJptLNNArq79MIcN8ioocFEzebfnCZt-jW29kjHgaDfxW5Tz1GvVpGl__fDRxH9ZWIz1X6VQOLKh_lBjogaXQA2NJKuDF2FiKsQJcMm6sAI" alt="Logo ZCI" height="42" loading="lazy">
+        <span>ZONA CENTRO INMOBILIARIA</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#inmuebles">Inmuebles</a></li>
+          <li class="nav-item"><a class="nav-link" href="#noticias">Noticias</a></li>
+          <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        </ul>
+        <a href="tel:+576042515154" class="btn btn-danger ms-lg-3 mt-3 mt-lg-0">
+          <i class="fas fa-phone-alt"></i> 251 5154
+        </a>
+      </div>
+    </div>
+  </nav>
+<!-- ================== FIN PARTE 1 ================== -->
+<!-- ================== INICIO PARTE 2: HERO + ICON GRID + NOTICIAS ================== -->
+
+<!-- Hero -->
+<header id="inicio" class="banner d-flex align-items-center text-center">
+  <div class="container">
+    <h1 class="display-5 fw-bold">Bienvenido a ZONA CENTRO INMOBILIARIA</h1>
+    <p class="lead mb-3">
+      <span id="hero-rotator" class="hero-phrase rotator show">
+        Somos la pieza esencial para su inversión inmobiliaria.
+      </span>
+    </p>
+    <a href="#contacto" class="btn btn-light btn-lg">Contáctanos</a>
+  </div>
+</header>
+
+<!-- Inmuebles destacados -->
+<section id="inmuebles" class="py-5 properties-section">
+  <div class="container">
+    <h2 class="text-center mb-3">Últimos Inmuebles Ingresados</h2>
+    <p class="text-center text-muted mb-4">Opciones en arriendo y venta con ubicación estratégica en Medellín y el área metropolitana.</p>
+
+    <div class="property-filters">
+      <span class="badge">Arriendo</span>
+      <span class="badge">Venta</span>
+      <span class="badge">Apartamentos</span>
+      <span class="badge">Locales</span>
+      <span class="badge">Oficinas</span>
+    </div>
+
+    <div class="row g-4" id="inmuebles-lista">
+      <div class="col-md-6 col-lg-4">
+        <article class="property-card">
+          <img class="property-thumb" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80" alt="Apartamento en Laureles">
+          <div class="property-body">
+            <div class="property-head">
+              <span class="property-type rent">ARRIENDO</span>
+              <span class="property-code">Cod. 1042</span>
+            </div>
+            <h3 class="property-title">Apartamento Moderno</h3>
+            <p class="property-zone"><i class="fa-solid fa-location-dot me-1"></i>Laureles, Medellín</p>
+            <div class="property-meta">
+              <span>82 m²</span>
+              <span>3 hab</span>
+              <span>2 baños</span>
+            </div>
+            <div class="property-price">$2.900.000 / mes</div>
+            <a href="#contacto" class="btn-property">Solicitar Información</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <article class="property-card">
+          <img class="property-thumb" src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=900&q=80" alt="Local comercial en el centro">
+          <div class="property-body">
+            <div class="property-head">
+              <span class="property-type rent">ARRIENDO</span>
+              <span class="property-code">Cod. 2188</span>
+            </div>
+            <h3 class="property-title">Local Comercial</h3>
+            <p class="property-zone"><i class="fa-solid fa-location-dot me-1"></i>Centro, Medellín</p>
+            <div class="property-meta">
+              <span>45 m²</span>
+              <span>1 salón</span>
+              <span>1 baño</span>
+            </div>
+            <div class="property-price">$3.250.000 / mes</div>
+            <a href="#contacto" class="btn-property">Solicitar Información</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <article class="property-card">
+          <img class="property-thumb" src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80" alt="Casa en venta en Envigado">
+          <div class="property-body">
+            <div class="property-head">
+              <span class="property-type sale">VENTA</span>
+              <span class="property-code">Cod. 3321</span>
+            </div>
+            <h3 class="property-title">Casa Familiar</h3>
+            <p class="property-zone"><i class="fa-solid fa-location-dot me-1"></i>Envigado</p>
+            <div class="property-meta">
+              <span>160 m²</span>
+              <span>4 hab</span>
+              <span>3 baños</span>
+            </div>
+            <div class="property-price">$720.000.000</div>
+            <a href="#contacto" class="btn-property">Solicitar Información</a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="service-strip">
+      <div class="row g-3">
+        <div class="col-sm-6 col-lg-3">
+          <div class="service-item">
+            <i class="fa-solid fa-key"></i>
+            <h6>Arrienda Seguro</h6>
+            <p>Estudio y selección de arrendatarios.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="service-item">
+            <i class="fa-solid fa-chart-line"></i>
+            <h6>Valorización</h6>
+            <p>Estrategias para proteger tu inversión.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="service-item">
+            <i class="fa-solid fa-file-signature"></i>
+            <h6>Gestión Legal</h6>
+            <p>Contratos claros y acompañamiento.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="service-item">
+            <i class="fa-solid fa-headset"></i>
+            <h6>Atención Rápida</h6>
+            <p>Soporte ágil para propietarios e inquilinos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Noticias (siempre visibles) -->
+<section id="noticias" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-3">Noticias</h2>
+    <p class="text-center text-muted mb-2">Actualidad del sector inmobiliario, vivienda, arriendos y propiedad horizontal.</p>
+    <div class="text-center mb-3">
+      <span class="badge bg-light text-dark" id="news-count">0 noticias</span>
+      <small class="text-muted ms-2" id="news-last-update">Actualizando titulares...</small>
+    </div>
+
+    <!-- Filtros -->
+    <div class="row g-3 mb-3">
+      <div class="col-md-6">
+        <input id="news-search" type="search" class="form-control" placeholder="Buscar por título o fuente...">
+      </div>
+      <div class="col-md-6 text-md-end">
+        <div id="news-tags" class="d-inline-flex flex-wrap gap-2">
+          <!-- chips generadas por JS (Parte 4) -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Lista de noticias -->
+    <ul class="list-group" id="news-list">
+      <!-- items generados por JS (Parte 4) -->
+    </ul>
+  </div>
+</section>
+
+<!-- ================== FIN PARTE 2 ================== -->
+<!-- ================== INICIO PARTE 3: NOSOTROS + CONTACTO + PQRSF + MODAL ================== -->
+
+<!-- Nosotros -->
+<section id="nosotros" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Nosotros</h2>
+
+    <!-- Historia, Misión, Visión -->
+    <div class="row g-4 mb-4">
+      <div class="col-lg-6">
+        <div class="card h-100 p-2">
+          <div class="card-body">
+            <span class="badge bg-light text-dark mb-2">Nuestra Historia</span>
+            <h5 class="card-title">Gestores de activos inmobiliarios</h5>
+            <p class="card-text">
+              Un gran empresario, con perseverancia y ética de trabajo, soñó con construir un futuro mejor para su familia aportando socialmente en la generación de empleo. Invirtió en su primera propiedad y reinvirtió las ganancias, ladrillo a ladrillo, hasta consolidar un portafolio sin perder sus raíces. En 2014 fundó ZONA CENTRO INMOBILIARIA, empresa que refleja honestidad, dedicación y excelencia.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card h-100 p-2">
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-12">
+                <div class="p-3 rounded-3 border">
+                  <h6 class="mb-2"><i class="fa-solid fa-bullseye me-2"></i>Misión</h6>
+                  <p class="mb-0">Ser guardianes confiables del patrimonio de nuestros propietarios, protegiendo y aumentando el valor de sus inversiones con integridad, transparencia y dedicación.</p>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="p-3 rounded-3 border">
+                  <h6 class="mb-2"><i class="fa-regular fa-eye me-2"></i>Visión</h6>
+                  <p class="mb-0">Ser la gestora líder de activos inmobiliarios, reconocida por excelencia operativa, innovación y compromiso con la satisfacción del cliente.</p>
+                </div>
+              </div>
+            </div> <!-- row -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Objetivos / Pilares / Valores -->
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fa-regular fa-flag me-2"></i>Objetivos</h5>
+            <ul class="mt-3 mb-0">
+              <li>Seleccionar arrendatarios confiables bajo estándares de responsabilidad.</li>
+              <li>Brindar experiencias positivas y soluciones eficaces a los arrendatarios.</li>
+              <li>Ser referentes por integridad, excelencia de servicio y valor para propietarios.</li>
+              <li>Posicionarnos por calidad de proyectos y satisfacción de clientes.</li>
+              <li>Hacer de cada convenio una experiencia memorable.</li>
+              <li>Destacar por innovación, eficiencia y compromiso con la excelencia.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fa-solid fa-gem me-2"></i>Pilares</h5>
+            <div class="row g-3 mt-1">
+              <div class="col-sm-6">
+                <div class="p-3 rounded-3 border h-100">
+                  <h6 class="mb-1"><i class="fa-solid fa-star me-1"></i>Excelencia</h6>
+                  <p class="mb-0 small">Calidad y mejora continua para superar expectativas.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 rounded-3 border h-100">
+                  <h6 class="mb-1"><i class="fa-solid fa-lightbulb me-1"></i>Innovación</h6>
+                  <p class="mb-0 small">Tecnología y procesos eficientes para mejores resultados.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 rounded-3 border h-100">
+                  <h6 class="mb-1"><i class="fa-solid fa-book-open me-1"></i>Aprendizaje</h6>
+                  <p class="mb-0 small">Crecimiento continuo del equipo.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 rounded-3 border h-100">
+                  <h6 class="mb-1"><i class="fa-solid fa-shield-heart me-1"></i>Resiliencia</h6>
+                  <p class="mb-0 small">Adaptabilidad y soluciones creativas ante desafíos.</p>
+                </div>
+              </div>
+            </div> <!-- row -->
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fa-solid fa-scale-balanced me-2"></i>Valores</h5>
+            <div class="row g-3 mt-1">
+              <div class="col-md-6">
+                <ul class="mb-0">
+                  <li><strong>Honestidad:</strong> transparencia en el uso de información y recursos.</li>
+                  <li><strong>Responsabilidad:</strong> asumir consecuencias y cumplir metas.</li>
+                  <li><strong>Laboriosidad:</strong> trabajo como fuerza transformadora.</li>
+                  <li><strong>Solidaridad:</strong> compañerismo y trabajo en equipo.</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="mb-0">
+                  <li><strong>Confianza:</strong> información ágil, veraz y exacta; mejora continua.</li>
+                  <li><strong>Orden:</strong> procesos organizados y uso racional de recursos.</li>
+                  <li><strong>Transparencia:</strong> reglas claras para conocer condiciones del negocio.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- row -->
+  </div>
+</section>
+
+<!-- Contacto -->
+<section id="contacto" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Contáctanos</h2>
+
+    <div class="row g-4">
+      <!-- Card: Formulario de Contacto -->
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title mb-3"><i class="fa-regular fa-envelope me-2"></i>Escríbenos</h5>
+
+            <div class="alert alert-success d-none" role="alert" id="msg-ok">
+              ¡Gracias! Hemos recibido tu mensaje. Te contactaremos muy pronto.
+            </div>
+            <div class="alert alert-danger d-none" role="alert" id="msg-error">
+              Hubo un problema al enviar el mensaje. Intenta nuevamente o escríbenos al WhatsApp.
+            </div>
+
+            <form class="row g-3 needs-validation" id="form-contacto" novalidate>
+              <div class="col-12">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
+                <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="email" placeholder="correo@ejemplo.com" required>
+                <div class="invalid-feedback">Correo inválido.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="tel" class="form-control" id="telefono" placeholder="300 000 0000">
+              </div>
+              <div class="col-12">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?" required></textarea>
+                <div class="invalid-feedback">Escribe tu mensaje.</div>
+              </div>
+
+              <!-- Honeypot anti-spam -->
+              <div class="d-none">
+                <label>Dejar en blanco</label>
+                <input type="text" id="website" autocomplete="off">
+              </div>
+
+              <div class="col-12 text-end">
+                <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card: Mapa / Ubicación -->
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title mb-3"><i class="fa-solid fa-location-dot me-2"></i>Nuestra ubicación</h5>
+            <p class="mb-2">Calle 50 #54-25, La Candelaria, Medellín, Antioquia</p>
+            <div class="ratio ratio-16x9">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.9061986172875!2d-75.57378022581247!3d6.250459926305408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e442a121c768d13%3A0x32a5b0ddabc1c42f!2sCl.%2050%20%2354-25%2C%20La%20Candelaria%2C%20Medell%C3%ADn%2C%20La%20Candelaria%2C%20Medellin%2C%20Antioquia!5e0!3m2!1ses-419!2sco!4v1691689189246!5m2!1ses-419!2sco"
+                style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de ubicación ZCI"></iframe>
+            </div>
+            <div class="mt-3">
+              <a class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener"
+                 href="https://maps.google.com/?q=Calle%2050%20%2354-25%2C%20Medell%C3%ADn">Abrir en Google Maps</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PQRSF -->
+    <div class="row g-4 mt-2">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title mb-3"><i class="fa-regular fa-file-lines me-2"></i>PQRSF (Peticiones, Quejas, Reclamos, Sugerencias y Felicitaciones)</h5>
+
+            <div class="alert alert-success d-none" role="alert" id="pqr-ok">
+              ¡Tu PQRSF fue registrada! Te contactaremos según el canal elegido.
+            </div>
+            <div class="alert alert-danger d-none" role="alert" id="pqr-error">
+              No pudimos enviar tu PQRSF. Intenta de nuevo o escríbenos por WhatsApp.
+            </div>
+
+            <form class="row g-3 needs-validation" id="form-pqr" novalidate>
+              <div class="col-md-4">
+                <label for="pqr-tipo" class="form-label">Tipo de solicitud</label>
+                <select id="pqr-tipo" class="form-select" required>
+                  <option value="" selected disabled>Selecciona...</option>
+                  <option>Petición</option>
+                  <option>Queja</option>
+                  <option>Reclamo</option>
+                  <option>Sugerencia</option>
+                  <option>Felicitación</option>
+                </select>
+                <div class="invalid-feedback">Selecciona el tipo.</div>
+              </div>
+              <div class="col-md-4">
+                <label for="pqr-nombre" class="form-label">Nombre completo</label>
+                <input type="text" class="form-control" id="pqr-nombre" required>
+                <div class="invalid-feedback">Ingresa tu nombre.</div>
+              </div>
+              <div class="col-md-4">
+                <label for="pqr-doc" class="form-label">Documento</label>
+                <input type="text" class="form-control" id="pqr-doc" placeholder="Cédula/NIT" required>
+                <div class="invalid-feedback">Ingresa tu documento.</div>
+              </div>
+              <div class="col-md-4">
+                <label for="pqr-email" class="form-label">Correo</label>
+                <input type="email" class="form-control" id="pqr-email" placeholder="correo@ejemplo.com" required>
+                <div class="invalid-feedback">Correo inválido.</div>
+              </div>
+              <div class="col-md-4">
+                <label for="pqr-tel" class="form-label">Teléfono</label>
+                <input type="tel" class="form-control" id="pqr-tel" placeholder="300 000 0000">
+              </div>
+              <div class="col-md-4">
+                <label for="pqr-canal" class="form-label">Canal preferido</label>
+                <select id="pqr-canal" class="form-select">
+                  <option>Llamada</option>
+                  <option>WhatsApp</option>
+                  <option>Correo</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="pqr-asunto" class="form-label">Asunto</label>
+                <input type="text" class="form-control" id="pqr-asunto" required>
+                <div class="invalid-feedback">Ingresa un asunto.</div>
+              </div>
+              <div class="col-12">
+                <label for="pqr-desc" class="form-label">Descripción</label>
+                <textarea id="pqr-desc" class="form-control" rows="5" required placeholder="Describe tu solicitud..."></textarea>
+                <div class="invalid-feedback">Describe tu caso.</div>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="pqr-habeas" required>
+                  <label class="form-check-label" for="pqr-habeas">
+                    Acepto el tratamiento de datos según la Ley 1581 de 2012.
+                  </label>
+                  <div class="invalid-feedback">Debes aceptar el tratamiento de datos.</div>
+                </div>
+              </div>
+
+              <!-- Honeypot anti-spam -->
+              <div class="d-none">
+                <label>Dejar en blanco</label>
+                <input type="text" id="pqr-website" autocomplete="off">
+              </div>
+
+              <div class="col-12 text-end">
+                <button type="submit" class="btn btn-primary">Enviar PQRSF</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Modal: Detalle completo de inmueble -->
+<div class="modal fade" id="modalDetalleInmueble" tabindex="-1" aria-labelledby="modalDetalleInmuebleLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content border-0">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="modalDetalleInmuebleLabel">Detalle de inmueble</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body pt-0">
+        <div id="property-detail-content"></div>
+      </div>
+      <div class="modal-footer border-0">
+        <a href="#contacto" class="btn btn-primary" data-bs-dismiss="modal">Solicitar Información</a>
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================== FIN PARTE 3 ================== -->
+<!-- ================== INICIO PARTE 4: FOOTER + SCRIPTS ================== -->
+
+<!-- Footer -->
+<footer class="text-center py-4">
+  <div class="container">
+    <p class="mb-1">&copy; <span id="footer-year"></span> ZONA CENTRO INMOBILIARIA. Todos los derechos reservados.</p>
+    <small>Dirección: Calle 50 #54-25, Medellín, Antioquia · Tel: (604) 251 5154</small>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="assets/js/main.js" defer></script>
+
+</body>
+</html>
+<!-- ================== FIN PARTE 4 ================== -->
+
+
+

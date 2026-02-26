@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panel Admin - ZONA CENTRO INMOBILIARIA</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom shadow fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#" aria-label="Panel Admin ZCI">
+        <span>PANEL ADMIN ZCI</span>
+      </a>
+      <a href="index.html" class="btn btn-danger ms-auto">
+        <i class="fa-solid fa-globe me-1"></i>Ver sitio público
+      </a>
+    </div>
+  </nav>
+
+  <main class="py-5" style="padding-top: 120px !important; padding-bottom: 40px !important;">
+    <div class="container">
+      <h1 class="text-center mb-3">Administración</h1>
+      <p class="text-center text-muted mb-4">Acceso para cargar formularios y actualizar inmuebles. Requiere inicio de sesión en Supabase.</p>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <h5 class="card-title"><i class="fa-regular fa-file-lines me-2"></i>Formularios</h5>
+              <p class="text-muted">Gestiona archivos del bucket de formularios.</p>
+              <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalFormularios">
+                Abrir gestor de formularios
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <h5 class="card-title"><i class="fa-solid fa-images me-2"></i>Inmuebles</h5>
+              <p class="text-muted">Crea inmuebles y sube fotos al inventario.</p>
+              <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalSubirFotosInmueble">
+                Abrir gestor de inmuebles
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal: Formularios (abre desde el Icon Grid) -->
+<div class="modal fade" id="modalFormularios" tabindex="-1" aria-labelledby="modalFormulariosLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content border-0" style="border-radius:16px;">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="modalFormulariosLabel">
+          <i class="fa-regular fa-file-lines me-2"></i>Formularios
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body pt-0">
+        <div class="row g-4">
+          <div class="col-12">
+            <div class="alert alert-info mb-0" id="forms-status-alert">
+              Cargando formularios...
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="card h-100 p-3 shadow-sm">
+              <div class="card-body">
+                <h5 class="mb-2"><i class="fa-regular fa-folder-open me-2"></i>Formularios disponibles</h5>
+                <p class="text-muted mb-3">Descarga los formularios vigentes directamente desde Supabase.</p>
+                <ul class="list-group" id="forms-list">
+                  <li class="list-group-item text-muted">No hay formularios cargados.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="card h-100 p-3 shadow-sm">
+              <div class="card-body">
+                <h5 class="mb-2"><i class="fa-solid fa-cloud-arrow-up me-2"></i>Subir nuevo formulario</h5>
+                <p class="text-muted mb-3">Solo usuarios autenticados pueden cargar archivos.</p>
+
+                <div id="forms-auth-panel">
+                  <form id="forms-login-form" class="row g-3" novalidate>
+                    <div class="col-md-6">
+                      <label class="form-label" for="forms-email">Correo</label>
+                      <input type="email" class="form-control" id="forms-email" placeholder="usuario@empresa.com" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="forms-password">Contraseña</label>
+                      <input type="password" class="form-control" id="forms-password" minlength="6" required>
+                    </div>
+                    <div class="col-12 text-end">
+                      <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-right-to-bracket me-2"></i>Iniciar sesión
+                      </button>
+                    </div>
+                  </form>
+                </div>
+
+                <div id="forms-upload-panel" class="d-none">
+                  <div class="d-flex justify-content-between align-items-center gap-2 mb-2">
+                    <small class="text-muted">Sesión activa: <span id="forms-user-email" class="fw-semibold"></span></small>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="forms-logout-btn">Cerrar sesión</button>
+                  </div>
+                  <form id="forms-upload-form" class="row g-3" novalidate>
+                    <div class="col-md-6">
+                      <label class="form-label" for="forms-file-name">Nombre del formulario</label>
+                      <input type="text" class="form-control" id="forms-file-name" placeholder="Ejemplo: Formulario de Arrendamiento" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="forms-file-input">Archivo</label>
+                      <input type="file" class="form-control" id="forms-file-input" accept=".pdf,.doc,.docx,.xlsx,.xls,.ppt,.pptx,.txt" required>
+                    </div>
+                    <div class="col-12 text-end">
+                      <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-upload me-2"></i>Subir formulario
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal: Subir fotos de inmuebles (requiere autenticación) -->
+<div class="modal fade" id="modalSubirFotosInmueble" tabindex="-1" aria-labelledby="modalSubirFotosInmuebleLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content border-0" style="border-radius:16px;">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="modalSubirFotosInmuebleLabel">
+          <i class="fa-solid fa-images me-2"></i>Subir fotos de inmuebles
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body pt-0">
+        <div id="supabase-upload-status" class="alert alert-info mb-3" role="alert">
+          Verificando sesión...
+        </div>
+
+        <div id="supabase-auth-panel">
+          <p class="text-muted">Inicia sesión para cargar nuevas fotos al inventario de inmuebles.</p>
+          <form id="supabase-login-form" class="row g-3" novalidate>
+            <div class="col-md-6">
+              <label class="form-label" for="supabase-email">Correo</label>
+              <input type="email" class="form-control" id="supabase-email" placeholder="usuario@empresa.com" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="supabase-password">Contraseña</label>
+              <input type="password" class="form-control" id="supabase-password" minlength="6" required>
+            </div>
+            <div class="col-12 text-end">
+              <button type="submit" class="btn btn-primary">
+                <i class="fa-solid fa-right-to-bracket me-2"></i>Iniciar sesión
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div id="supabase-uploader-panel" class="d-none">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+            <small class="text-muted">Sesión activa: <span id="supabase-user-email" class="fw-semibold"></span></small>
+            <button type="button" id="supabase-logout-btn" class="btn btn-outline-secondary btn-sm">Cerrar sesión</button>
+          </div>
+          <div class="d-flex flex-wrap gap-2 mb-2">
+            <button type="button" id="supabase-fill-last-btn" class="btn btn-outline-secondary btn-sm">
+              <i class="fa-solid fa-wand-magic-sparkles me-1"></i>Autollenar último inmueble
+            </button>
+            <button type="button" id="supabase-suggest-title-btn" class="btn btn-outline-secondary btn-sm">
+              <i class="fa-regular fa-lightbulb me-1"></i>Sugerir título
+            </button>
+          </div>
+
+          <form id="supabase-upload-form" class="row g-3" novalidate>
+            <div class="col-md-4">
+              <label class="form-label" for="supabase-property-code">Código del inmueble</label>
+              <input type="text" class="form-control" id="supabase-property-code" placeholder="Ejemplo: 1042" autocomplete="off" required>
+              <small class="text-muted" id="supabase-code-hint">Se asigna automáticamente por consecutivo.</small>
+            </div>
+            <div class="col-md-8">
+              <label class="form-label" for="supabase-property-title">Título</label>
+              <input type="text" class="form-control" id="supabase-property-title" placeholder="Ejemplo: Apartamento Moderno" autocomplete="on" required>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label" for="supabase-property-business">Negocio</label>
+              <select class="form-select" id="supabase-property-business" required>
+                <option value="" selected disabled>Selecciona...</option>
+                <option value="arriendo">Arriendo</option>
+                <option value="venta">Venta</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label" for="supabase-property-type">Tipo inmueble</label>
+              <input type="text" class="form-control" id="supabase-property-type" list="property-type-suggestions" placeholder="Apartamento, Local, Casa..." autocomplete="on" required>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label" for="supabase-property-city">Ciudad</label>
+              <input type="text" class="form-control" id="supabase-property-city" list="property-city-suggestions" placeholder="Medellín" autocomplete="address-level2" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="supabase-property-zone">Zona / barrio</label>
+              <input type="text" class="form-control" id="supabase-property-zone" list="property-zone-suggestions" placeholder="Laureles, Centro, Envigado..." autocomplete="street-address">
+            </div>
+            <div class="col-md-3">
+              <label class="form-label" for="supabase-property-area">Área (m²)</label>
+              <input type="number" step="0.01" min="0" class="form-control" id="supabase-property-area" placeholder="82">
+            </div>
+            <div class="col-md-3">
+              <label class="form-label" for="supabase-property-price">Precio</label>
+              <input type="number" step="1" min="0" class="form-control" id="supabase-property-price" placeholder="2900000" required>
+              <small class="text-muted" id="supabase-price-preview">Formato: $0</small>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label" for="supabase-property-bedrooms">Habitaciones</label>
+              <input type="number" min="0" class="form-control" id="supabase-property-bedrooms" placeholder="3">
+            </div>
+            <div class="col-md-3">
+              <label class="form-label" for="supabase-property-bathrooms">Baños</label>
+              <input type="number" min="0" class="form-control" id="supabase-property-bathrooms" placeholder="2">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="supabase-photo-files">Fotos</label>
+              <input type="file" class="form-control" id="supabase-photo-files" accept="image/*" multiple required>
+              <small class="text-muted">Puedes seleccionar varias imágenes.</small>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="supabase-property-description">Descripción</label>
+              <textarea class="form-control" id="supabase-property-description" rows="2" placeholder="Descripción corta del inmueble."></textarea>
+            </div>
+            <div class="col-12">
+              <small class="text-muted">El código también se usa para organizar las fotos en el bucket.</small>
+            </div>
+            <datalist id="property-type-suggestions">
+              <option value="Apartamento"></option>
+              <option value="Casa"></option>
+              <option value="Local"></option>
+              <option value="Oficina"></option>
+              <option value="Bodega"></option>
+              <option value="Lote"></option>
+            </datalist>
+            <datalist id="property-city-suggestions">
+              <option value="Medellín"></option>
+              <option value="Envigado"></option>
+              <option value="Itagüí"></option>
+              <option value="Sabaneta"></option>
+              <option value="Bello"></option>
+              <option value="La Estrella"></option>
+            </datalist>
+            <datalist id="property-zone-suggestions">
+              <option value="Laureles"></option>
+              <option value="El Poblado"></option>
+              <option value="Centro"></option>
+              <option value="Belén"></option>
+              <option value="Robledo"></option>
+              <option value="Envigado"></option>
+            </datalist>
+            <div class="col-12 text-end">
+              <button type="submit" class="btn btn-primary">
+                <i class="fa-solid fa-upload me-2"></i>Subir fotos
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="text-center py-4">
+    <div class="container">
+      <p class="mb-1">&copy; <span id="footer-year"></span> ZONA CENTRO INMOBILIARIA.</p>
+      <small>Panel de administración</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
